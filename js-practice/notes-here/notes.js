@@ -71,15 +71,42 @@
 
 /* Objects
         Syntax:
-            const person = {
-                name: 'Francis'
-                age: 20;
-                language: 'javascript';
-            };
+            key: value pairs;
+
+                const person = {
+                    name: 'Francis'
+                    age: 20;
+                    language: 'javascript';
+                };
 
         2 Ways of accessing the Object
             1. dot notation -> console.log(person.shirt);
             2. bracket notation -> console.log(person['shirt']);
 
+
+    Methods
+        - Is a property containing a function definition
+
+        SYNTAX: 
+            const person = {
+                name: 'Francis',
+                age: 20,
+                language: 'JavaScript',
+                love: ' I love',
+                hobbies: ' Programming',
+                skills: function () {
+                    return this.love + this.hobbies;  //This is the method
+                }
+
+                const greeting = (person,person2) => {
+
+                const hello = 'Hi my name is ' + person2.name + ' and my age is ' +
+                person2.age + ' and I speak ' + person2.language + ' and mostly, I love ' + person.name + ' so much! and his motto is' + person.skills();
+
+                return hello;
+            }
+
+            console.log(greeting(person,person2));
+        }
 */
 
