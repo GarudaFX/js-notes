@@ -110,3 +110,73 @@
         }
 */
 
+/* Higher order functions
+        - map();  <- it loops and returns an array
+
+            syntax: 
+                //Implicit return
+                [1,2,3,4,5].map(number => console.log(number))
+                output = 1 2 3 4 5
+                
+                or 
+
+                [1,2,3,4,5].map(number => {
+                    console.log(number));
+                })
+                output = 1 2 3 4 5
+
+
+        - filter() - It loops and returns an array with
+            matching conditions
+
+            syntax:
+                const filter = (numbers,greaterThan) => {
+                    let result = []
+                    for(const number of numbers) 
+                        if(number > greaterThan) 
+                            result.push(number)
+
+                    return result
+                }
+
+                console.log(filter[1,2,3,4,5,6], 3)
+
+                ACTUAL APPLICATION OF FILTER FUNCTION
+
+                const nums = [1,2,3,4,5,6]
+                console.log(nums.filter(num => num > 6))
+
+
+
+        - reduce();
+            -Takes in a function as an argument
+            - Loops and gives you back the accumulator
+            - Makes an array that returns a single value 
+            by adding all values inside the array
+            
+            Syntax:
+                function sum(a, b) {
+                    return a + b;
+                }
+
+                const nums = [1,2,3,4,5,6]
+                const result = nums.reduce(sum)
+
+                console.log(result)
+*/
+
+/* DOM Manipulation 
+    variable.innerText <- Changes the value of the 
+                        text in the html
+    variable.innerHTML <- changes the value of the text
+                        in the html (outside javascript and
+                            inside HTML)
+
+    variable.style.color = "value" <- changes the font color of an element
+    variable.stlye.backgroundColor = "value"
+*/
+
+/* Events 
+    variable.onclick <- This is an event that detects every clik of the 
+                    object
+*/
