@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<style>
+    body {
+        background: gray
+    }
+
+    h1 {
+        padding: 20px 0 0 0;
+        text-align: center
+    }
+
+    .play {
+        margin-top: 100px;
+        margin-left: 27%;
+        display: flex;
+        flex-wrap: wrap;
+        gap:20px;
+        justify-items: center;
+    }
+
+    button {
+        border-radius:40px;
+        font-size:50px;
+        cursor: pointer;
+        padding:90px;
+    }
+
+    button:first-child {
+        background-color: red;
+    }
+
+    button:nth-child(2) {
+        background-color:blue;
+    }
+
+    button:last-child{
+        background-color:yellow;
+    }
+
+    #reset {
+        margin-top: 30px;
+        margin-left:35%;
+    }
+
+</style>
+<body>
+    <h1 id="title"></h1>
+    <div class="play">
+        <button class="button" value="red">0</button>
+        <button class="button" value="blue">0</button>
+        <button class="button" value="yellow">0</button>
+    </div>
+    <button id="reset" value="reset">RESET</button>
+</body>
+<script src="function.js"></script>
+</html>
