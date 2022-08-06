@@ -1,6 +1,6 @@
 // // var first_number = prompt('Enter first number: ');
 // // var second_number = prompt('Enter second number: ');
-// // var op = prompt('Enter operator: '); 
+// // var op = prompt('Enter operator: ');
 
 // var result;
 // if(op == '+') {
@@ -74,7 +74,7 @@
 
 // // const sum = (a,b) => {
 // //      return a+b;
-// // }   
+// // }
 
 // // const sub = (a,b) => {
 // //     return a-b;
@@ -142,7 +142,7 @@
 //     console.log(myHobbies[i]);
 // }
 
-// // ES6 Function with ES6 for loop 
+// // ES6 Function with ES6 for loop
 // const numbers = []
 // let doubles = []
 // let sum = 0
@@ -181,11 +181,11 @@
 
 //Finding the largest number inside
 //the array
-// const nums = [] 
+// const nums = []
 
 // const max = (nums) => {
 //     let result = nums[0]
-    
+
 //     for(const number of nums) {
 //         if(number > result) result = number
 //     }
@@ -197,11 +197,11 @@
 //--------------------------------------------------------------------------------
 
 
-//Determine the frequency of the string 
+//Determine the frequency of the string
 // const phrase = []
 
 // const wordFrequency = (phrase) => {
-//     //constructing an object to store the letter and its frequency 
+//     //constructing an object to store the letter and its frequency
 //     let frequency = {}
 //     for(const letter of phrase) {
 //         //check if the letter is already existing
@@ -246,11 +246,11 @@
 //     console.log(empty)
 
 //     for(number of numbers) {
-//         if(number > greaterThan) 
+//         if(number > greaterThan)
 //             empty.push(number)
 //     }
 //     return empty
-// } 
+// }
 
 // //-------------------------------------
 // //Array of objects
@@ -315,3 +315,71 @@
 //         displayCount.innerText = `${choice[button.value]}`
 //     }
 // })
+
+
+// const dogImgDiv = document.getElementById("dog-img");
+// const btn = document.getElementById("new-dog");
+
+// const newDog = () => {
+//     fetch('https://dog.ceo/api/breeds/image/random')
+//     .then(response => response.json())
+//     .then(json => {
+//             console.log(json)
+//             dogImgDiv.innerHTML = `<img src='${json.message}' height=400 width=400/>`
+//     })
+// }
+
+// btn.addEventListener("click", (e) => {
+//     newDog();
+//     console.log("Clicked: get new dog")
+// })
+
+//SuperHero APP  ------------------------------------------------------------
+//SuperHero API url = https://superheroapi.com/api/602893128119582
+
+const newHero = document.getElementById('newHero');
+const heroImg = document.getElementById('heroImg');
+const searchBar = document.getElementById('search-bar');
+const searchBtn = document.getElementById('search');
+const heroName = document.getElementById('heroName');
+const heroStrength = document.getElementById('heroStrength');
+
+const SUPERHERO_TOKEN = 602893128119582;
+const BASE_ID = `https://superheroapi.com/api.php/${SUPERHERO_TOKEN}`
+
+const randomHero = () => {
+    const numberOfHeroes = 731
+    const randomHeroId = Math.ceil(Math.random() * numberOfHeroes);
+
+    return randomHeroId;
+}
+
+const getRandomSuperHero = (id,name) => {
+    fetch(`${BASE_ID}/${id}`)
+    .then(response => response.json())
+    .then(json => {
+        console.log(json);
+        const heroName = `<h1>Name: ${json.name}</h1>`;
+        const heroStr = `<h1>Strength: ${json.powerstats.strength}</h1>`;
+        heroImg.innerHTML = `<img src= "${json.image.url}" width=200 height=200/>${heroName}${heroStr}`;
+    })
+}
+
+const getSearchSuperHero = (name) => {
+    fetch(`${BASE_ID}/search/${name}`)
+    .then(response => response.json())
+    .then(json => {
+        console.log(json);
+        const superHero = json.results[0]
+        // console.log(superHero);
+        const heroName = `<h1>Name: ${superHero.name}</h1>`;
+        const heroStr = `<h1>Strength: ${superHero.powerstats.strength}</h1>`;
+        heroImg.innerHTML = `<img src= "${superHero.image.url}" width=200 height=200>${heroName}${heroStr}`;
+    })
+}
+
+newHero.addEventListener("click", () => {
+    getRandomSuperHero(randomHero());
+})
+
+searchBtn.addEventListener("click", () => getSearchSuperHero(searchBar.value));
