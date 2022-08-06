@@ -180,3 +180,27 @@
     variable.onclick <- This is an event that detects every clik of the 
                     object
 */
+
+/* 
+   Additional Functions --------------------------------
+
+   .toFixed(number) -> it is like the maximum decimal place values to display (%.2f in C langauge)
+   .toLocalString('en-US') -> this will convert to a US churvanes
+*/
+
+/* APIS 
+    -stands for Application Programming Interface
+    - It lets your app communicate with other services
+    to fetch data
+
+
+    Syntax:
+        
+    -> Asynchronously fetch data from the server 
+    fetch('https://dog.ceo/api/breeds/image/random')
+    .then(response => response.json())
+    .then(json => {
+        console.log(json)
+        dogImgDiv.innerHTML = `<img src='${json.message}' height=400 width=400/>`
+    })
+*/ 
